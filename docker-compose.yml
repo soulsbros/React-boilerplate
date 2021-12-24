@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  combattracker-frontend:
+    container_name: combattracker-frontend
+    restart: always
+    image: steeven9/combattracker-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_BACKEND_HOSTNAME=combattracker-backend
+      - REACT_APP_BACKEND_PORT=4000
+      - REACT_APP_PROD=true # set this for deployment
+    links:
+      - combattracker-backend
+    depends_on: 
+      - combattracker-backend
+  combattracker-backend:
+    container_name: combattracker-backend
+    restart: always
+    image: steeven9/combattracker-backend
+    ports:
+        - "4000:4000"
+    environment: 
+      - REACT_APP_BACKEND_PORT=4000
+networks:
+  default:
+    name: combattracker

@@ -1,0 +1,22 @@
+{
+  "name": "combattracker-backend",
+  "version": "0.1.0",
+  "description": "Backend for a D&D 5e combat tracker",
+  "author": "Steeven",
+  "license": "GPL-3.0-only",
+  "keywords": [],
+  "main": "app.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "forever": "^4.0.1",
+    "nodemon": "^2.0.7",
+    "socket.io": "^4.0.1"
+  },
+  "scripts": {
+    "start": "forever app.js",
+    "stop": "forever stop app.js",
+    "dev": "nodemon app.js",
+    "lint": "eslint routes/ --ext .js --fix"
+  }
+}

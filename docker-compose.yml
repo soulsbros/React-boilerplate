@@ -1,27 +1,27 @@
 version: '3.7'
 services:
-  combattracker-frontend:
-    container_name: combattracker-frontend
+  react-boilerplate-frontend:
+    container_name: react-boilerplate-frontend
     restart: always
-    image: steeven9/combattracker-frontend
+    builds: ./client # change to image for prod
     ports:
       - "3000:3000"
     environment:
-      - REACT_APP_BACKEND_HOSTNAME=combattracker-backend
+      - REACT_APP_BACKEND_HOSTNAME=react-boilerplate-backend
       - REACT_APP_BACKEND_PORT=4000
       - REACT_APP_PROD=true # set this for deployment
     links:
-      - combattracker-backend
+      - react-boilerplate-backend
     depends_on: 
-      - combattracker-backend
-  combattracker-backend:
-    container_name: combattracker-backend
+      - react-boilerplate-backend
+  react-boilerplate-backend:
+    container_name: react-boilerplate-backend
     restart: always
-    image: steeven9/combattracker-backend
+    builds: ./server # change to image for prod
     ports:
         - "4000:4000"
     environment: 
       - REACT_APP_BACKEND_PORT=4000
 networks:
   default:
-    name: combattracker
+    name: react-boilerplate

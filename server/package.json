@@ -1,22 +1,28 @@
 {
-  "name": "combattracker-backend",
+  "name": "react-boilerplate",
   "version": "0.1.0",
-  "description": "Backend for a D&D 5e combat tracker",
-  "author": "Steeven",
+  "description": "A template for modern web applications",
+  "author": "soulsbros",
   "license": "GPL-3.0-only",
   "keywords": [],
   "main": "app.js",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "forever": "^4.0.1",
-    "nodemon": "^2.0.7",
-    "socket.io": "^4.0.1"
+    "nodemon": "^2.0.15",
+    "socket.io": "^4.4.0"
   },
   "scripts": {
     "start": "forever app.js",
     "stop": "forever stop app.js",
     "dev": "nodemon app.js",
-    "lint": "eslint routes/ --ext .js --fix"
+    "lint": "eslint ./ --ext .js --fix"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
   }
 }

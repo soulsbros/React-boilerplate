@@ -1,6 +1,6 @@
 {
-  "short_name": "CombatTracker",
-  "name": "A D&D 5e combat tracker",
+  "short_name": "react-boilerplate",
+  "name": "A template for modern web applications",
   "icons": [
     {
       "src": "img/favicon.ico",

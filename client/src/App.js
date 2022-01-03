@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core';
+import Typography from '@mui/material/Typography';
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import SocketContext from './SocketContext';
@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <img className="inlb vaMid" alt="favicon" src="img/favicon-32x32.png" />
-      <span className="title vaMid"> App title</span>
+      <span className="title vaMid"> react-boilerplate</span>
       {socket ? (
         <SocketContext.Provider value={socket}>
           <div className="container">

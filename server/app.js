@@ -1,23 +1,16 @@
 const express = require("express");
 const http = require("http");
-const cors = require("cors");
 
 const serverPort = process.env.REACT_APP_BACKEND_PORT || 4000;
-const index = require("./routes/index");
+const system = require("./routes/system");
 
 const app = express();
-app.use(cors());
 app.use(express.json());
-app.use(index);
+app.use("/api/system", system);
 
 const server = http.createServer(app);
 
-const io = require("socket.io")(server, {
-  cors: {
-    origin: "*",
-    methods: ["GET", "POST"],
-  },
-});
+const io = require("socket.io")(server);
 
 let nextClientId = 0;
 
@@ -31,5 +24,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(serverPort, () =>
-  console.info(`[INFO] Server listening on port ${serverPort}`)
+  console.info(`[INFO] react-boilerplate server listening on port ${serverPort}`)
 );

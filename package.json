@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "@soulsbros/eslint-config": "^1.0.3",
+    "@soulsbros/prettier-config": "^1.0.2",
+    "husky": "^7.0.4",
+    "recursive-install": "^1.4.0"
+  },
+  "scripts": {
+    "lint": "eslint ./ --ext .js --fix",
+    "ri": "npm-recursive-install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "post-merge": "npm run ri"
+    }
+  },
+  "lint-staged": {
+    "*": "npm run lint"
+  }
+}

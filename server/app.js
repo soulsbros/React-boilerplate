@@ -24,5 +24,7 @@ io.on("connection", (socket) => {
 });
 
 server.listen(serverPort, () =>
-  console.info(`[INFO] react-boilerplate server listening on port ${serverPort}`)
+  console.info(
+    `[INFO] react-boilerplate server listening on port ${serverPort}`
+  )
 );

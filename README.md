@@ -12,6 +12,8 @@ Checklist before usage:
 and `A template for modern web applications` to the description
 - add the actual favicon (suggestion: use [this website](https://realfavicongenerator.net/))
 - check and adjust dependencies
+- if needed, add and set up CORS for server
+- check Eslint and Prettier configs
 
 Additionally, if you want to push to Docker Hub:
 - create the corresponding Docker Hub images

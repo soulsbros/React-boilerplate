@@ -9,7 +9,7 @@ module.exports = (app) => {
     createProxyMiddleware({
       target: 'http://' + backendHostname + ':' + backendPort,
       ws: true,
-    })
+    }),
   );
 
   app.use(
@@ -17,6 +17,6 @@ module.exports = (app) => {
     createProxyMiddleware({
       target: 'http://' + backendHostname + ':' + backendPort,
       changeOrigin: true,
-    })
+    }),
   );
 };

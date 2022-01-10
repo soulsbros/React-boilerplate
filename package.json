@@ -1,4 +1,9 @@
 {
+  "name": "react-boilerplate",
+  "version": "0.1.0",
+  "description": "A template for modern web applications",
+  "author": "soulsbros",
+  "license": "GPL-3.0-only",
   "devDependencies": {
     "@soulsbros/eslint-config": "^1.0.3",
     "@soulsbros/prettier-config": "^1.0.2",
@@ -7,7 +12,7 @@
   },
   "scripts": {
     "lint": "eslint ./ --ext .js --fix",
-    "ri": "npm-recursive-install",
+    "ri": "npm i && npm-recursive-install",
     "prepare": "husky install"
   }
 }

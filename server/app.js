@@ -7,6 +7,7 @@ const system = require('./routes/system');
 const app = express();
 app.use(express.json());
 app.use('/api/system', system);
+app.use('/api/health', (req, res) => res.send('Ok'));
 
 const server = http.createServer(app);
 

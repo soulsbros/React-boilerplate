@@ -1,12 +1,24 @@
-import Typography from '@mui/material/Typography';
+import { AppBar, Box, CssBaseline, Toolbar, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import SocketContext from './SocketContext';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const isProd = process.env.REACT_APP_PROD;
 
-function App() {
-  const [socket, setSocket] = useState(null);
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#b90009',
+    },
+    secondary: {
+      main: '#44403e',
+    },
+  },
+});
+
+const App = () => {
+  const [socket, setSocket] = useState(undefined);
 
   useEffect(() => {
     console.info('Connecting to ' + (isProd ? 'prod' : 'dev'));
@@ -20,20 +32,25 @@ function App() {
   }, [setSocket]);
 
   return (
-    <>
-      <img className="inlb vaMid" alt="favicon" src="img/favicon-32x32.png" />
-      <span className="title vaMid"> react-boilerplate</span>
-      {socket ? (
-        <SocketContext.Provider value={socket}>
-          <div className="container">
-            <Typography>Work in progress</Typography>
-          </div>
-        </SocketContext.Provider>
-      ) : (
-        <div>Loading...</div>
-      )}
-    </>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box sx={{ display: 'flex' }}>
+        <AppBar position="fixed" sx={{ zIndex: (th) => th.zIndex.drawer + 1 }} color="primary">
+          <Toolbar>
+            <Typography variant="h6" noWrap component="div">
+              react-boilerplate
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <Toolbar />
+          <SocketContext.Provider value={socket}>
+            <Typography>A template for modern web applications</Typography>
+          </SocketContext.Provider>
+        </Box>
+      </Box>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;

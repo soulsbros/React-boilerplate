@@ -2,20 +2,10 @@ import { AppBar, Box, CssBaseline, Toolbar, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import SocketContext from './SocketContext';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './Theme';
 
 const isProd = process.env.REACT_APP_PROD;
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#b90009',
-    },
-    secondary: {
-      main: '#44403e',
-    },
-  },
-});
 
 const App = () => {
   const [socket, setSocket] = useState(undefined);
